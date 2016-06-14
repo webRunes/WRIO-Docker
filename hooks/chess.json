@@ -1,0 +1,9 @@
+{
+    "scripts": [
+        {
+            "command": "/config/chess.sh",
+            "args":[ 
+            ]
+        }
+    ]
+}

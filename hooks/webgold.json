@@ -1,0 +1,9 @@
+{
+    "scripts": [
+        {
+            "command": "/config/webgold.sh",
+            "args":[ 
+            ]
+        }
+    ]
+}

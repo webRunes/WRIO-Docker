@@ -1,0 +1,93 @@
+
+#apache:
+#  build: ./apache/
+#  ports:
+#   - "80:80"
+#  restart: always#
+
+#  links:
+#   - titter
+#   - login
+#   - storage
+#   - webgold
+#   - core
+
+login:
+  image: webrunes/login-wrio-app
+  ports:
+   - "5000:5000"
+  restart: always
+  volumes:
+   - ./configs/login-wrio-app/:/srv/config
+  command: bash -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
+
+titter:
+  image: webrunes/titter-wrio-app
+  ports:
+   - "5001:5001"
+  restart: always
+  volumes:
+   - ./configs/titter-wrio-app/:/srv/config
+  command: bash -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
+
+storage:
+  image: webrunes/storage-wrio-app
+  ports:
+   - "5002:5002"
+  restart: always
+  volumes:
+    - ./configs/storage-wrio-app/:/srv/config
+  command: bash -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
+
+webgold:
+  image: webrunes/webgold-wrio-app
+  ports:
+   - "5003:5003"
+  restart: always
+  links:
+  - ethereum
+  volumes:
+    - ./configs/webgold-wrio-app/:/srv/config
+  command: bash -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
+
+
+#chess:
+#  build: ./Chess-WRIO-Game/
+#  ports:
+#   - "5005:5005"
+#  volumes:
+#   - ./Chess-WRIO-Game/:/srv/www/
+#  links:
+#    - titter
+
+core:
+  image: webrunes/core-wrio-app
+  ports:
+   - "5004:5004"
+  restart: always
+  volumes:
+  - ./configs/core-wrio-app/:/srv/config
+  command: bash -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
+
+ethereum:
+  image: ethereum/client-go
+  ports:
+   - "30303:30303"
+   - "8545:8545"
+  volumes:
+   - "./ethdata/:/root/.ethereum"
+  command: --rpc --rpcaddr "0.0.0.0"
+
+
+webhooks:
+  build: ./hooks/
+  volumes:
+  - ./hooks/:/config
+  - /var/lib/docker:/var/lib/docker
+  - /var/run/docker.sock:/var/run/docker.sock
+  - "./:/wriodockerproduction"
+  ports:
+     - "8081:8081"
+  privileged: true
+  command: bash -c "echo 123 && app -listen-addr 0.0.0.0:8081 -configdir /config"
+

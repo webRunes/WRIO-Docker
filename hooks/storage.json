@@ -1,0 +1,9 @@
+{
+    "scripts": [
+        {
+            "command": "/config/storage.sh",
+            "args":[ 
+            ]
+        }
+    ]
+}

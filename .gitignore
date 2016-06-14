@@ -1,0 +1,6 @@
+configs/
+configs
+/configs/
+/configs/*
+/ethdata
+/ethdata/*

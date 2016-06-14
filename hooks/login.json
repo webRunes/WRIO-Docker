@@ -1,0 +1,9 @@
+{
+    "scripts": [
+        {
+            "command": "/config/login.sh",
+            "args":[ 
+            ]
+        }
+    ]
+}

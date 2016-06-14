@@ -1,0 +1,9 @@
+{
+    "scripts": [
+        {
+            "command": "/config/titter.sh",
+            "args":[ 
+            ]
+        }
+    ]
+}
