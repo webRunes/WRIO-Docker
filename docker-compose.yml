@@ -79,15 +79,15 @@ ethereum:
   command: --rpc --rpcaddr "0.0.0.0"
 
 
-webhooks:
-  build: ./hooks/
-  volumes:
-  - ./hooks/:/config
+#webhooks:
+#  build: ./hooks/
+#  volumes:
+# - ./hooks/:/config
 #  - /var/lib/docker:/var/lib/docker
-  - /var/run/docker.sock:/var/run/docker.sock
-  - "./:/wriodockerproduction"
-  ports:
-     - "8081:8081"
-  privileged: true
-  command: bash -c "echo 123 && app -listen-addr 0.0.0.0:8081 -configdir /config"
+#  - /var/run/docker.sock:/var/run/docker.sock
+#  - "./:/wriodockerproduction"
+#  ports:
+#     - "8081:8081"
+#  privileged: true
+#  command: bash -c "echo 123 && app -listen-addr 0.0.0.0:8081 -configdir /config"
 

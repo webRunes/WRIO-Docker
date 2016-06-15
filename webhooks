@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /srv/docker/Wrio-Docker-Production
+./app -listen-addr 0.0.0.0:8081 -configdir ./hooks
