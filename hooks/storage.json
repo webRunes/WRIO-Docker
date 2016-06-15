@@ -1,7 +1,7 @@
 {
     "scripts": [
         {
-            "command": "/config/storage.sh",
+            "command": "/srv/docker/Wrio-Docker-Production/hooks/storage.sh",
             "args":[ 
             ]
         }

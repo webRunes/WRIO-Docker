@@ -1,7 +1,7 @@
 {
     "scripts": [
         {
-            "command": "/config/core.sh",
+            "command": "/srv/docker/Wrio-Docker-Production/hooks/core.sh",
             "args":[ 
             ]
         }

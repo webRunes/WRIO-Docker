@@ -1,7 +1,7 @@
 {
     "scripts": [
         {
-            "command": "/config/webgold.sh",
+            "command": "/srv/docker/Wrio-Docker-Production/hooks/webgold.sh",
             "args":[ 
             ]
         }

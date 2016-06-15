@@ -1,7 +1,7 @@
 {
     "scripts": [
         {
-            "command": "/config/login.sh",
+            "command": "/srv/docker/Wrio-Docker-Production/hooks/login.sh",
             "args":[ 
             ]
         }
