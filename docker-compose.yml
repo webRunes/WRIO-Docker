@@ -78,6 +78,10 @@ ethereum:
    - "./ethdata/:/root/.ethereum"
   command: --rpc --rpcaddr "0.0.0.0"
 
+iframely:
+  image: tsaikd/iframely
+  ports:
+  - "8061:5006"
 
 #webhooks:
 #  build: ./hooks/
