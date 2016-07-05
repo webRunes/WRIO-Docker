@@ -82,7 +82,7 @@ ethereum:
 iframely:
   image: tsaikd/iframely
   ports:
-  - "8061:5006"
+  - "5006:8061"
 
 #webhooks:
 #  build: ./hooks/
