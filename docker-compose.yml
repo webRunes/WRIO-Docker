@@ -76,7 +76,8 @@ ethereum:
    - "8545:8545"
   volumes:
    - "./ethdata/:/root/.ethereum"
-  command: --rpc --rpcaddr "0.0.0.0"
+  #command: --rpc --rpcaddr "0.0.0.0"
+  command: --testnet --fast
 
 iframely:
   image: tsaikd/iframely
