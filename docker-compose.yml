@@ -82,7 +82,7 @@ ethereum:
 iframely:
   image: tsaikd/iframely
   ports:
-  - "5006:8061"
+  - "5006:5006"
   volumes:
   - ./iframely/config.local.js:/iframely/config.local.js
 
