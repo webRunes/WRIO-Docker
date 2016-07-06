@@ -83,6 +83,8 @@ iframely:
   image: tsaikd/iframely
   ports:
   - "5006:8061"
+  volumes:
+  - ./iframely/config.local.js:/iframely/config.local.js
 
 #webhooks:
 #  build: ./hooks/
