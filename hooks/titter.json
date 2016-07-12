@@ -1,7 +1,7 @@
 {
     "scripts": [
         {
-            "command": "/config/titter.sh",
+            "command": "/srv/docker/Wrio-Docker-Production/hooks/titter.sh",
             "args":[ 
             ]
         }
