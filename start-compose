@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /srv/docker/Wrio-Docker-Production/
+docker-compose up -d
