@@ -70,7 +70,7 @@ core:
   command: bash -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
 ethereum:
-  image: ethereum/client-go:develop
+  image: michbil/client-go
   ports:
    - "30303:30303"
    - "8545:8545"
