@@ -85,7 +85,7 @@ ethereum:
    - "8545:8545"
   volumes:
    - "./parity/:/root/"
-  command: --chain=testnet
+  command: --chain=ropsten
 
 iframely:
   image: tsaikd/iframely
