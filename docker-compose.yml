@@ -85,7 +85,7 @@ ethereum:
    - "8545:8545"
   volumes:
    - "./parity/:/root/"
-  command: --chain=ropsten
+  command: --chain=ropsten --jsonrpc-interface '0.0.0.0'
 
 iframely:
   image: tsaikd/iframely
