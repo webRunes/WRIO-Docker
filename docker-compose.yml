@@ -84,7 +84,7 @@ ethereum:
   ports:
    - "8545:8545"
   volumes:
-   - "./parity/:/root/.parity"
+   - "./parity/:/root/"
   command: --chain=testnet
 
 iframely:
