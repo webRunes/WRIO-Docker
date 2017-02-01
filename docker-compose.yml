@@ -19,7 +19,7 @@ login:
   restart: always
   volumes:
    - ./configs/login-wrio-app/:/srv/config
-  command: bash -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
+  command: sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
 titter:
   image: webrunes/titter-wrio-app
@@ -28,7 +28,7 @@ titter:
   restart: always
   volumes:
    - ./configs/titter-wrio-app/:/srv/config
-  command: bash -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
+  command: sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
 storage:
   image: webrunes/storage-wrio-app
@@ -37,7 +37,7 @@ storage:
   restart: always
   volumes:
     - ./configs/storage-wrio-app/:/srv/config
-  command: bash -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
+  command: sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
 webgold:
   image: webrunes/webgold-wrio-app
@@ -48,7 +48,7 @@ webgold:
   - ethereum
   volumes:
     - ./configs/webgold-wrio-app/:/srv/config
-  command: bash -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
+  command: sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
 
 #chess:
@@ -104,5 +104,5 @@ iframely:
 #  ports:
 #     - "8081:8081"
 #  privileged: true
-#  command: bash -c "echo 123 && app -listen-addr 0.0.0.0:8081 -configdir /config"
+#  command: sh -c "echo 123 && app -listen-addr 0.0.0.0:8081 -configdir /config"
 
