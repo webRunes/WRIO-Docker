@@ -69,15 +69,14 @@ core:
   - ./configs/core-wrio-app/:/srv/config
   command: /bin/sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
-ethereum:
-  image: ethereum/client-go:latest
-  ports:
-   - "30303:30303"
-   - "8545:8545"
-  volumes:
-   - "./ethdata/:/root/.ethereum"
-  #command: --rpc --rpcaddr "0.0.0.0"
-  command: --testnet --rpc --rpcaddr "0.0.0.0" --support-dao-fork
+#ethereum:
+#  image: ethereum/client-go:latest
+#  ports:
+#   - "30303:30303"
+#   - "8545:8545"
+#  volumes:
+#   - "./ethdata/:/root/.ethereum"
+#  command: --testnet --rpc --rpcaddr "0.0.0.0" --support-dao-fork
 
 #ethereum:
 #  image: ethcore/parity:stable-release
