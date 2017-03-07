@@ -44,8 +44,8 @@ webgold:
   ports:
    - "5003:5003"
   restart: always
-  links:
-  - ethereum
+#  links:
+#  - ethereum
   volumes:
     - ./configs/webgold-wrio-app/:/srv/config
   command: sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
