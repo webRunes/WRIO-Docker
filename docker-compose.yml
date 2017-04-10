@@ -93,6 +93,14 @@ iframely:
   volumes:
   - ./iframely/config.local.js:/iframely/config.local.js
 
+
+rabbitmq:
+  image: "rabbitmq"
+  ports:
+    - "15672:15672"
+    - "5672:5672"
+
+
 #webhooks:
 #  build: ./hooks/
 #  volumes:
