@@ -56,7 +56,7 @@ chess:
   ports:
    - "5005:5005"
   volumes:
-   - ./Chess-WRIO-Game/:/srv/www/
+   - ./configs/core-wrio-app/:/srv/config
   links:
     - titter
   command: /bin/sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
