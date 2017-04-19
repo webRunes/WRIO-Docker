@@ -59,6 +59,7 @@ chess:
    - ./Chess-WRIO-Game/:/srv/www/
   links:
     - titter
+  command: /bin/sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
 core:
   image: webrunes/core-wrio-app
