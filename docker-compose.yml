@@ -52,7 +52,7 @@ webgold:
 
 
 chess:
-  build: ./Chess-WRIO-Game/
+  image: webrunes/chess-wrio-game
   ports:
    - "5005:5005"
   volumes:
