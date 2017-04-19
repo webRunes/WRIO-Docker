@@ -59,7 +59,7 @@ chess:
    - ./configs/core-wrio-app/:/srv/config
   links:
     - titter
-  command: /bin/sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
+  command: /bin/sh -c "cd /srv/www && cp /srv/config/config.json . && gulp && node server.js"
 
 core:
   image: webrunes/core-wrio-app
