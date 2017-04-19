@@ -25,8 +25,6 @@ titter:
   image: webrunes/titter-wrio-app
   ports:
    - "5001:5001"
-  links:
-   - rabbitmq
   restart: always
   volumes:
    - ./configs/titter-wrio-app/:/srv/config
@@ -46,8 +44,6 @@ webgold:
   ports:
    - "5003:5003"
   restart: always
-  links:
-   - rabbitmq
 #  links:
 #  - ethereum
   volumes:
@@ -98,11 +94,11 @@ iframely:
   - ./iframely/config.local.js:/iframely/config.local.js
 
 
-rabbitmq:
-  image: "rabbitmq"
-  ports:
-    - "15672:15672"
-    - "5672:5672"
+#rabbitmq:
+#  image: "rabbitmq"
+#  ports:
+#    - "15672:15672"
+#    - "5672:5672"
 
 
 #webhooks:
