@@ -51,14 +51,14 @@ webgold:
   command: sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
 
-#chess:
-#  build: ./Chess-WRIO-Game/
-#  ports:
-#   - "5005:5005"
-#  volumes:
-#   - ./Chess-WRIO-Game/:/srv/www/
-#  links:
-#    - titter
+chess:
+  build: ./Chess-WRIO-Game/
+  ports:
+   - "5005:5005"
+  volumes:
+   - ./Chess-WRIO-Game/:/srv/www/
+  links:
+    - titter
 
 core:
   image: webrunes/core-wrio-app
