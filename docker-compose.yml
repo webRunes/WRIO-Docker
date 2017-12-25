@@ -6,7 +6,7 @@
 #  restart: always#
 
 #  links:
-#   - titter
+#   - pinger
 #   - login
 #   - storage
 #   - webgold
@@ -21,13 +21,13 @@ login:
    - ./configs/login-wrio-app/:/srv/config
   command: sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
-titter:
+pinger:
   image: webrunes/titter-wrio-app
   ports:
    - "5001:5001"
   restart: always
   volumes:
-   - ./configs/titter-wrio-app/:/srv/config
+   - ./configs/pinger-wrio-app/:/srv/config
   command: sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
 storage:
@@ -58,7 +58,7 @@ chess:
   volumes:
    - ./configs/core-wrio-app/:/srv/config
   links:
-    - titter
+    - pinger
   command: /bin/sh -c "cd /srv/www && cp /srv/config/config.json . && gulp && node server.js"
 
 core:
