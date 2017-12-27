@@ -1,9 +1,8 @@
 {
-    "scripts": [
-        {
-            "command": "/srv/docker/Wrio-Docker-Production/hooks/titter.sh",
-            "args":[ 
-            ]
-        }
-    ]
+  "scripts": [
+    {
+      "command": "/srv/docker/Wrio-Docker-Production/hooks/pinger.sh",
+      "args": []
+    }
+  ]
 }

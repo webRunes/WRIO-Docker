@@ -6,7 +6,7 @@
 #  restart: always#
 
 #  links:
-#   - titter
+#   - pinger
 #   - login
 #   - storage
 #   - webgold
@@ -19,16 +19,16 @@ login:
   restart: always
   volumes:
    - ./configs/login-wrio-app/:/srv/config
-  command: bash -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
+  command: sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
-titter:
+pinger:
   image: webrunes/titter-wrio-app
   ports:
    - "5001:5001"
   restart: always
   volumes:
-   - ./configs/titter-wrio-app/:/srv/config
-  command: bash -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
+   - ./configs/pinger-wrio-app/:/srv/config
+  command: sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
 storage:
   image: webrunes/storage-wrio-app
@@ -37,28 +37,29 @@ storage:
   restart: always
   volumes:
     - ./configs/storage-wrio-app/:/srv/config
-  command: bash -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
+  command: sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
 webgold:
   image: webrunes/webgold-wrio-app
   ports:
    - "5003:5003"
   restart: always
-  links:
-  - ethereum
+#  links:
+#  - ethereum
   volumes:
     - ./configs/webgold-wrio-app/:/srv/config
-  command: bash -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
+  command: sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
 
-#chess:
-#  build: ./Chess-WRIO-Game/
-#  ports:
-#   - "5005:5005"
-#  volumes:
-#   - ./Chess-WRIO-Game/:/srv/www/
-#  links:
-#    - titter
+chess:
+  image: webrunes/chess-wrio-game
+  ports:
+   - "5005:5005"
+  volumes:
+   - ./configs/core-wrio-app/:/srv/config
+  links:
+    - pinger
+  command: /bin/sh -c "cd /srv/www && cp /srv/config/config.json . && gulp && node server.js"
 
 core:
   image: webrunes/core-wrio-app
@@ -67,17 +68,24 @@ core:
   restart: always
   volumes:
   - ./configs/core-wrio-app/:/srv/config
-  command: bash -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
+  command: /bin/sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
-ethereum:
-  image: ethereum/client-go
-  ports:
-   - "30303:30303"
-   - "8545:8545"
-  volumes:
-   - "./ethdata/:/root/.ethereum"
-  #command: --rpc --rpcaddr "0.0.0.0"
-  command: --testnet --rpc --rpcaddr "0.0.0.0"
+#ethereum:
+#  image: ethereum/client-go:latest
+#  ports:
+#   - "30303:30303"
+#   - "8545:8545"
+#  volumes:
+#   - "./ethdata/:/root/.ethereum"
+#  command: --testnet --rpc --rpcaddr "0.0.0.0" --support-dao-fork
+
+#ethereum:
+#  image: ethcore/parity:stable-release
+#  ports:
+#   - "8545:8545"
+#  volumes:
+#   - "./parity/:/root/"
+#  command: --chain=ropsten --jsonrpc-interface all --jsonrpc-hosts all
 
 iframely:
   image: tsaikd/iframely
@@ -85,6 +93,14 @@ iframely:
   - "5006:5006"
   volumes:
   - ./iframely/config.local.js:/iframely/config.local.js
+
+
+#rabbitmq:
+#  image: "rabbitmq"
+#  ports:
+#    - "15672:15672"
+#    - "5672:5672"
+
 
 #webhooks:
 #  build: ./hooks/
@@ -96,5 +112,5 @@ iframely:
 #  ports:
 #     - "8081:8081"
 #  privileged: true
-#  command: bash -c "echo 123 && app -listen-addr 0.0.0.0:8081 -configdir /config"
+#  command: sh -c "echo 123 && app -listen-addr 0.0.0.0:8081 -configdir /config"
 
