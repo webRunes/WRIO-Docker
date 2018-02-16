@@ -22,7 +22,7 @@ login:
   command: sh -c "cd /srv/www && cp /srv/config/config.json . && node server.js"
 
 pinger:
-  image: webrunes/titter-wrio-app
+  image: webrunes/pinger-wrio-app
   ports:
    - "5001:5001"
   restart: always
@@ -113,4 +113,3 @@ iframely:
 #     - "8081:8081"
 #  privileged: true
 #  command: sh -c "echo 123 && app -listen-addr 0.0.0.0:8081 -configdir /config"
-
